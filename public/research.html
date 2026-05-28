@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sovereign Supply Chain & Industrial Resilience Index — 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1814;
+    --ink-mid: #3d3830;
+    --ink-light: #6b6355;
+    --ink-faint: #9c9184;
+    --paper: #faf8f4;
+    --paper-mid: #f2ede4;
+    --paper-rule: #e0d8cc;
+    --accent: #8b1a1a;
+    --accent-mid: #a02828;
+    --accent-light: #c9403a;
+    --gold: #c8972a;
+    --gold-light: #e0b84a;
+    --blue-steel: #1e3a5f;
+    --blue-mid: #2d5282;
+    --teal: #1e5c52;
+    --rule: #c8b89a;
+    --rule-light: #ddd4c0;
+    --shadow: rgba(26,24,20,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: #e8e2d8;
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAVIGATION ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--ink);
+    border-bottom: 2px solid var(--accent);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 52px;
+  }
+  nav .nav-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--rule);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  nav .nav-links {
+    display: flex; gap: 1.8rem; list-style: none;
+  }
+  nav .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--ink-faint);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav .nav-links a:hover { color: var(--gold-light); }
+
+  /* ─── PAGE WRAPPER ─── */
+  .publication {
+    max-width: 960px;
+    margin: 52px auto 0;
+    background: var(--paper);
+    box-shadow: 0 0 60px rgba(0,0,0,0.18);
+  }
+
+  /* ─── COVER ─── */
+  .cover {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  .cover-texture {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(200,184,154,0.04) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(200,184,154,0.03) 80px);
+    pointer-events: none;
+  }
+  .cover-top-bar {
+    border-bottom: 1px solid rgba(200,184,154,0.2);
+    padding: 1.4rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .cover-org {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .cover-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.12em;
+  }
+  .cover-body {
+    flex: 1;
+    padding: 4rem 3rem 3rem;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; z-index: 1;
+  }
+  .cover-series {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .cover-rule {
+    width: 48px; height: 2px;
+    background: var(--accent);
+    margin-bottom: 2rem;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--paper);
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+  }
+  .cover h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .cover-subtitle {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(250,248,244,0.65);
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 3.5rem;
+  }
+  .cover-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(200,184,154,0.15);
+    border-left: 1px solid rgba(200,184,154,0.15);
+    max-width: 640px;
+  }
+  .cover-meta-item {
+    border-right: 1px solid rgba(200,184,154,0.15);
+    border-bottom: 1px solid rgba(200,184,154,0.15);
+    padding: 1.2rem 1.4rem;
+  }
+  .cover-meta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+  .cover-meta-value {
+    font-size: 0.82rem;
+    color: var(--paper-mid);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .cover-bottom {
+    padding: 2rem 3rem;
+    border-top: 1px solid rgba(200,184,154,0.12);
+    display: flex; justify-content: space-between; align-items: flex-end;
+    position: relative; z-index: 1;
+  }
+  .cover-disclaimer {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    color: rgba(250,248,244,0.3);
+    letter-spacing: 0.06em;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+  .cover-index-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-align: right;
+  }
+
+  /* ─── CONTENT SECTIONS ─── */
+  .section {
+    padding: 4rem 3.5rem;
+    border-bottom: 1px solid var(--rule-light);
+    position: relative;
+  }
+  .section:last-child { border-bottom: none; }
+  .section-alt { background: var(--paper-mid); }
+  .section-dark {
+    background: var(--ink);
+    color: var(--paper);
+    border-bottom-color: rgba(200,184,154,0.12);
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .section-dark .section-number { color: var(--gold); }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    margin-bottom: 0.4rem;
+  }
+  .section-dark h2 { color: var(--paper); }
+  h2 em { font-style: italic; color: var(--accent); }
+  .section-dark h2 em { color: var(--gold-light); }
+
+  .section-rule {
+    width: 32px; height: 1.5px;
+    background: var(--rule);
+    margin: 1.2rem 0 2rem;
+  }
+  .section-dark .section-rule { background: rgba(200,184,154,0.3); }
+
+  h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+    margin-top: 2.2rem;
+  }
+  .section-dark h3 { color: var(--paper-mid); }
+
+  h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+    margin-top: 1.8rem;
+  }
+  .section-dark h4 { color: var(--gold); }
+
+  p {
+    margin-bottom: 1.1rem;
+    font-size: 0.97rem;
+    color: var(--ink-mid);
+    max-width: 72ch;
+  }
+  .section-dark p { color: rgba(250,248,244,0.75); }
+
+  strong { font-weight: 500; color: var(--ink); }
+  .section-dark strong { color: var(--paper); }
+
+  em.highlight { font-style: normal; color: var(--accent); font-weight: 400; }
+  .section-dark em.highlight { color: var(--gold-light); }
+
+  /* ─── PULLQUOTE ─── */
+  .pullquote {
+    border-left: 3px solid var(--accent);
+    padding: 1.2rem 1.8rem;
+    margin: 2.5rem 0;
+    background: rgba(139,26,26,0.04);
+  }
+  .pullquote p {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 400;
+    margin: 0;
+    max-width: none;
+  }
+  .section-dark .pullquote {
+    border-left-color: var(--gold);
+    background: rgba(200,151,42,0.07);
+  }
+  .section-dark .pullquote p { color: var(--paper-mid); }
+
+  /* ─── EXECUTIVE SUMMARY BOXES ─── */
+  .exec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 2rem 0;
+  }
+  .exec-box {
+    border: 1px solid var(--rule-light);
+    padding: 1.4rem 1.6rem;
+    background: var(--paper);
+  }
+  .exec-box-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .exec-box p { font-size: 0.88rem; margin: 0; color: var(--ink-mid); }
+
+  /* ─── KEY FINDINGS ─── */
+  .findings-list {
+    list-style: none;
+    margin: 1.5rem 0;
+  }
+  .findings-list li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    font-size: 0.93rem;
+    color: var(--ink-mid);
+  }
+  .findings-list li:last-child { border-bottom: none; }
+  .finding-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    font-weight: 500;
+    min-width: 24px;
+    padding-top: 0.1rem;
+  }
+  .section-dark .findings-list li { border-bottom-color: rgba(200,184,154,0.12); color: rgba(250,248,244,0.7); }
+  .section-dark .finding-num { color: var(--gold); }
+
+  /* ─── TABLES ─── */
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  thead tr {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  thead th {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    white-space: nowrap;
+  }
+  thead th:last-child { border-right: none; }
+  tbody tr {
+    border-bottom: 1px solid var(--rule-light);
+    transition: background 0.15s;
+  }
+  tbody tr:hover { background: rgba(139,26,26,0.03); }
+  tbody td {
+    padding: 0.75rem 1rem;
+    color: var(--ink-mid);
+    vertical-align: top;
+  }
+  .section-alt table tbody tr { border-bottom-color: var(--rule); }
+  .td-country { font-weight: 500; color: var(--ink); }
+  .td-mono {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    text-align: center;
+  }
+
+  /* ─── SCORE CHIPS ─── */
+  .chip {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+  .chip-high { background: #1e5c3215; color: #1e5c52; border: 1px solid #1e5c3240; }
+  .chip-mid { background: #c8972a14; color: #8b6010; border: 1px solid #c8972a35; }
+  .chip-low { background: #8b1a1a12; color: var(--accent); border: 1px solid #8b1a1a30; }
+  .chip-watch { background: #1e3a5f12; color: var(--blue-steel); border: 1px solid #1e3a5f30; }
+
+  /* ─── FRAMEWORK GRID ─── */
+  .framework-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule-light);
+    border: 1px solid var(--rule-light);
+    margin: 2rem 0;
+  }
+  .framework-item {
+    background: var(--paper);
+    padding: 1.3rem 1.5rem;
+  }
+  .section-alt .framework-item { background: var(--paper-mid); }
+  .fi-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+  }
+  .fi-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .fi-desc {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    line-height: 1.55;
+  }
+
+  /* ─── SCORECARD VISUAL ─── */
+  .scorecard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .scorecard-country {
+    border: 1px solid var(--rule-light);
+    background: var(--paper);
+    padding: 0;
+    overflow: hidden;
+  }
+  .sc-header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.85rem 1rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .sc-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .sc-score {
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gold);
+  }
+  .sc-body { padding: 0.9rem 1rem; }
+  .sc-dim {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    font-size: 0.75rem;
+  }
+  .sc-dim:last-child { border-bottom: none; }
+  .sc-dim-label { color: var(--ink-light); }
+  .sc-dim-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .sc-bar-track {
+    width: 60px; height: 4px;
+    background: var(--rule-light);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .sc-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+  .sc-val {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--ink-mid);
+    min-width: 20px;
+    text-align: right;
+  }
+
+  /* ─── RISK MATRIX ─── */
+  .risk-matrix {
+    display: grid;
+    grid-template-columns: 80px repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule-light);
+    border: 1px solid var(--rule-light);
+    margin: 2rem 0;
+    font-size: 0.78rem;
+  }
+  .rm-cell {
+    background: var(--paper);
+    padding: 0.8rem 0.9rem;
+    text-align: center;
+  }
+  .rm-header {
+    background: var(--ink);
+    color: rgba(250,248,244,0.8);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .rm-axis {
+    background: var(--paper-mid);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    writing-mode: horizontal-tb;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .rm-critical { background: #8b1a1a18; color: var(--accent); font-weight: 500; }
+  .rm-elevated { background: #c8972a14; color: #7a5a10; }
+  .rm-moderate { background: #1e3a5f0e; color: var(--blue-steel); }
+  .rm-managed { background: #1e5c3210; color: var(--teal); }
+
+  /* ─── SECTOR CARDS ─── */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 2rem 0;
+  }
+  .sector-card {
+    border: 1px solid var(--rule-light);
+    padding: 1.4rem 1.6rem;
+    background: var(--paper);
+  }
+  .sector-card-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 0.8rem;
+  }
+  .sector-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .sector-risk-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 1px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .srb-critical { background: var(--accent); color: white; }
+  .srb-high { background: var(--gold); color: white; }
+  .srb-moderate { background: var(--blue-steel); color: white; }
+  .sector-text { font-size: 0.82rem; color: var(--ink-light); line-height: 1.6; margin: 0; max-width: none; }
+
+  /* ─── CALLOUT BOX ─── */
+  .callout {
+    border: 1px solid var(--rule-light);
+    border-left: 4px solid var(--blue-steel);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    background: rgba(30,58,95,0.04);
+  }
+  .callout-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--blue-steel);
+    margin-bottom: 0.5rem;
+  }
+  .callout p { font-size: 0.88rem; margin: 0; max-width: none; }
+
+  .callout-warn {
+    border-left-color: var(--accent);
+    background: rgba(139,26,26,0.04);
+  }
+  .callout-warn .callout-label { color: var(--accent); }
+
+  .callout-gold {
+    border-left-color: var(--gold);
+    background: rgba(200,151,42,0.05);
+  }
+  .callout-gold .callout-label { color: #7a5a10; }
+
+  /* ─── POLICY TABLE ─── */
+  .policy-list { margin: 1.5rem 0; }
+  .policy-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1.5rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    align-items: start;
+  }
+  .policy-item:last-child { border-bottom: none; }
+  .policy-domain {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 0.15rem;
+  }
+  .policy-text { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.65; }
+
+  /* ─── METHODOLOGY ─── */
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule-light);
+    border: 1px solid var(--rule-light);
+    margin: 2rem 0;
+  }
+  .method-cell {
+    background: var(--paper);
+    padding: 1.2rem 1.3rem;
+  }
+  .section-alt .method-cell { background: var(--paper-mid); }
+  .method-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .method-text { font-size: 0.8rem; color: var(--ink-light); line-height: 1.55; }
+
+  /* ─── REFERENCES ─── */
+  .references-list {
+    list-style: none;
+    margin: 1rem 0;
+  }
+  .references-list li {
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.55;
+  }
+  .references-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--rule);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ─── RESEARCHER NOTE ─── */
+  .researcher-note {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 3.5rem;
+    border-top: 3px solid var(--accent);
+  }
+  .rn-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .rn-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--paper);
+    margin-bottom: 0.3rem;
+  }
+  .rn-affil {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.8rem;
+  }
+  .rn-text { font-size: 0.9rem; color: rgba(250,248,244,0.65); max-width: 60ch; line-height: 1.75; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: rgba(250,248,244,0.3);
+    text-align: center;
+    padding: 1.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    border-top: 1px solid rgba(200,184,154,0.1);
+  }
+
+  /* ─── PRINT / UTILITY ─── */
+  .toc { margin: 1.5rem 0; }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.45rem 0;
+    border-bottom: 1px dotted var(--rule-light);
+    font-size: 0.88rem;
+  }
+  .toc-item a { color: var(--ink-mid); text-decoration: none; }
+  .toc-item a:hover { color: var(--accent); }
+  .toc-page {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--ink-faint);
+  }
+  .toc-section { font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 1rem; margin-bottom: 0.2rem; }
+
+  .inline-stat {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.1rem;
+  }
+  .stat-row {
+    display: flex;
+    gap: 2.5rem;
+    margin: 2rem 0;
+  }
+  .stat-item { display: flex; flex-direction: column; }
+  .stat-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--ink-faint); letter-spacing: 0.12em; text-transform: uppercase; }
+  .section-dark .stat-label { color: rgba(200,184,154,0.5); }
+  .section-dark .inline-stat { color: var(--gold-light); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, var(--rule), transparent);
+    margin: 2rem 0;
+  }
+
+  @media(max-width: 700px) {
+    nav .nav-links { display: none; }
+    .section { padding: 2.5rem 1.5rem; }
+    .cover-body { padding: 2.5rem 1.5rem 2rem; }
+    .cover-top-bar, .cover-bottom { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .exec-grid, .sector-grid, .two-col, .scorecard-grid { grid-template-columns: 1fr; }
+    .framework-grid, .method-grid { grid-template-columns: 1fr; }
+    .cover-meta-grid { grid-template-columns: 1fr; }
+    .policy-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    h2 { font-size: 1.5rem; }
+    .scorecard-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">SSCRI · 2025</span>
+  <ul class="nav-links">
+    <li><a href="#exec-summary">Summary</a></li>
+    <li><a href="#country-analysis">Countries</a></li>
+    <li><a href="#sector-risk">Sectors</a></li>
+    <li><a href="#scorecard">Scorecard</a></li>
+    <li><a href="#policy">Policy</a></li>
+    <li><a href="#methodology">Method</a></li>
+  </ul>
+</nav>
+
+<div class="publication">
+
+<!-- ═══════════════════════════════════ COVER ═══════════════════════════════════ -->
+<section class="cover" id="cover">
+  <div class="cover-texture"></div>
+  <div class="cover-top-bar">
+    <span class="cover-org">Independent Analytical Framework Series</span>
+    <span class="cover-date">Publication Year · 2025</span>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-series">Industrial Resilience Research · Vol. I</div>
+    <div class="cover-rule"></div>
+
+    <h1>Sovereign Supply Chain<br>&amp; <em>Industrial Resilience</em> Index</h1>
+    <p class="cover-subtitle">
+      A structured assessment of manufacturing depth, strategic dependency exposure, and supply chain resilience across nine principal industrial economies, with sector-level analysis across eight critical industries.
+    </p>
+
+    <div class="cover-meta-grid">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Coverage</div>
+        <div class="cover-meta-value">9 Economies<br>8 Industries</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Framework</div>
+        <div class="cover-meta-value">10 Resilience<br>Dimensions</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Classification</div>
+        <div class="cover-meta-value">Independent<br>Analytical Work</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Researcher</div>
+        <div class="cover-meta-value">Priyanshu Gupta<br>LPU</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Type</div>
+        <div class="cover-meta-value">Analytical<br>Framework Report</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Version</div>
+        <div class="cover-meta-value">1.0 · First<br>Publication</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <p class="cover-disclaimer">
+      This publication constitutes an independent analytical framework and strategic industrial assessment. It does not represent the institutional views of any government, intergovernmental body, or commercial entity. All analytical judgments are derived from publicly available macroeconomic data, industrial trade statistics, and comparative policy frameworks. No proprietary datasets, surveys, or institutional partnerships are implied or claimed.
+    </p>
+    <div class="cover-index-badge">
+      SSCRI<br>2025
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ EXEC SUMMARY ═══════════════════════════════════ -->
+<section class="section" id="exec-summary">
+  <div class="section-number">§ 01 — Executive Summary</div>
+  <h2>Principal <em>Findings</em> &amp; Analytical Overview</h2>
+  <div class="section-rule"></div>
+
+  <p>The global industrial system has entered a period of structural reconfiguration. The compounded effect of geopolitical friction, pandemic-induced supply disruption, accelerating technology competition, and shifting trade bloc alignments has eroded the efficiency logic that defined supply chain architecture over the preceding three decades. Concentration risk — long treated as acceptable in exchange for cost efficiency — has emerged as a primary systemic vulnerability across sectors of strategic importance.</p>
+
+  <p>This publication presents the <strong>Sovereign Supply Chain &amp; Industrial Resilience Index (SSCRI)</strong> — an analytical framework assessing nine economies across ten structural dimensions. The index does not claim predictive precision; rather, it provides a comparative diagnostic of where resilience is strong, where it is manufactured, and where it remains genuinely fragile.</p>
+
+  <div class="pullquote">
+    <p>The central finding of this analysis is that supply chain resilience is not a technical optimization problem. It is a structural policy condition shaped by decades of industrial investment, trade positioning, and institutional capacity. It cannot be acquired rapidly, and the gap between resilient and exposed economies is widening.</p>
+  </div>
+
+  <div class="exec-grid">
+    <div class="exec-box">
+      <div class="exec-box-label">Finding 01 — Semiconductor Exposure</div>
+      <p>Taiwan's foundry concentration presents a systemic chokepoint with no credible near-term alternative at advanced process nodes. Seven of nine economies assessed carry critical exposure. Diversification timelines extend beyond a decade under current capital deployment trajectories.</p>
+    </div>
+    <div class="exec-box">
+      <div class="exec-box-label">Finding 02 — China+1 Transition Dynamics</div>
+      <p>Vietnam, India, and Mexico have each captured meaningful manufacturing displacement, but none has yet developed the industrial depth to absorb complex supply chain functions previously managed within China's integrated production ecosystem.</p>
+    </div>
+    <div class="exec-box">
+      <div class="exec-box-label">Finding 03 — Critical Minerals Concentration</div>
+      <p>Rare earth processing, lithium refining, and cobalt supply chains remain dominated by a single-country processing layer. EV and defense manufacturing supply chains face compounding exposure that industrial policy has so far addressed inadequately at pace.</p>
+    </div>
+    <div class="exec-box">
+      <div class="exec-box-label">Finding 04 — India's Industrial Position</div>
+      <p>India occupies a structurally favorable position as a manufacturing destination, supported by scale, demographics, and political stability. However, infrastructure deficits, regulatory complexity, and logistics limitations constrain near-term absorption capacity at industrial scale.</p>
+    </div>
+  </div>
+
+  <h3>Key Analytical Conclusions</h3>
+  <ul class="findings-list">
+    <li><span class="finding-num">01</span><span>The United States and Germany hold the strongest structural resilience scores, driven by institutional depth, diversified trade relationships, and technology anchoring — but both carry significant external input dependencies in electronics and critical materials.</span></li>
+    <li><span class="finding-num">02</span><span>Japan and South Korea present a paradox of high manufacturing sophistication combined with concentrated raw material and energy exposure, making their resilience scores sector-dependent rather than uniformly strong.</span></li>
+    <li><span class="finding-num">03</span><span>China's resilience profile is internally strong in manufacturing depth and resource mobilization but faces external demand fragmentation and a narrowing technology access corridor in advanced semiconductors and precision tooling.</span></li>
+    <li><span class="finding-num">04</span><span>Vietnam and Mexico serve as buffer capacity additions to global supply chains, not as independent industrial anchors. Their resilience is structurally derivative — dependent on the stability of the economies they serve.</span></li>
+    <li><span class="finding-num">05</span><span>Taiwan's industrial value is disproportionate to its risk profile. Its foundry capabilities are irreplaceable in the short-to-medium term, creating a geopolitical externality that extends far beyond its territorial boundaries.</span></li>
+    <li><span class="finding-num">06</span><span>No assessed economy has achieved full supply chain sovereignty across all eight analyzed industries. Resilience is partial, sectoral, and strategically calibrated — not comprehensive.</span></li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════════════════ GLOBAL OVERVIEW ═══════════════════════════════════ -->
+<section class="section section-alt" id="global-overview">
+  <div class="section-number">§ 02 — Global Context</div>
+  <h2>Industrial Fragmentation &amp; <em>Structural Drivers</em></h2>
+  <div class="section-rule"></div>
+
+  <div class="stat-row">
+    <div class="stat-item">
+      <span class="inline-stat">~42%</span>
+      <span class="stat-label">of global semiconductor revenue concentrated in Taiwan fab capacity</span>
+    </div>
+    <div class="stat-item">
+      <span class="inline-stat">~85%</span>
+      <span class="stat-label">of rare earth processing controlled by a single economy (China)</span>
+    </div>
+    <div class="stat-item">
+      <span class="inline-stat">~65%</span>
+      <span class="stat-label">of advanced API pharmaceutical ingredients sourced from two countries</span>
+    </div>
+  </div>
+
+  <p>The architecture of modern global supply chains was constructed under a set of assumptions that no longer hold uniformly: that geopolitical stability would persist, that comparative advantage optimization was a permanent condition rather than a policy-dependent one, and that logistics costs would remain sufficiently low to justify single-source global supply structures. The compounding of the pandemic, US-China technology competition, the Ukrainian conflict's commodity shock, and regional industrial policy reassertions in the EU, US, and India have collectively invalidated these assumptions.</p>
+
+  <h3>The Fragmentation Dynamic</h3>
+  <p>What is occurring is not deglobalization in the absolute sense — global trade volumes have remained resilient. What is changing is the <em class="highlight">topology</em> of trade. Supply chains are restructuring toward geopolitically aligned blocs, introducing redundancy at the cost of efficiency, and governments are increasingly treating industrial capacity as a strategic asset rather than a market outcome.</p>
+
+  <div class="callout">
+    <div class="callout-label">Analytical Context</div>
+    <p>The term "reshoring" is analytically imprecise. Most supply chain restructuring in progress represents friend-shoring or near-shoring — relocation to politically adjacent but still external geographies — rather than domestic re-establishment of full production capacity. The distinction matters for resilience assessment, as it replaces one form of external dependency with another, albeit with a lower geopolitical risk premium.</p>
+  </div>
+
+  <h3>Primary Structural Drivers</h3>
+  <div class="framework-grid">
+    <div class="framework-item">
+      <div class="fi-num">D1</div>
+      <div class="fi-title">Technology Decoupling Pressure</div>
+      <div class="fi-desc">Export control regimes, entity list expansions, and investment screening mechanisms are severing access to technology inputs across the US-China axis, cascading into allied economy supply chains and forcing technology sourcing realignment.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">D2</div>
+      <div class="fi-title">Industrial Policy Renaissance</div>
+      <div class="fi-desc">The CHIPS and Science Act, European Chips Act, India's PLI framework, and Japan's economic security legislation represent a structural reversal of the market-primacy doctrine that governed industrial policy for three decades.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">D3</div>
+      <div class="fi-title">Critical Resource Concentration</div>
+      <div class="fi-desc">The energy transition's input requirements — lithium, cobalt, rare earths, refined graphite — have exposed a new category of strategic dependency concentrated in extraction and processing geographies with adverse geopolitical profiles.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">D4</div>
+      <div class="fi-title">Logistics System Brittleness</div>
+      <div class="fi-desc">Just-in-time inventory management minimized working capital but systematically eliminated buffer stock. The pandemic and subsequent shipping disruptions demonstrated that logistics system brittleness is a structural risk rather than an operational anomaly.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">D5</div>
+      <div class="fi-title">Geopolitical Bloc Formation</div>
+      <div class="fi-desc">The hardening of US-China strategic competition and the expansion of QUAD, I2U2, IPEF, and Indo-Pacific economic frameworks is bifurcating trade architecture in ways that impose compliance costs on multinational supply chain structures.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">D6</div>
+      <div class="fi-title">Demand Geography Shift</div>
+      <div class="fi-desc">The center of gravity for consumer demand is moving toward Asia and Africa, creating structural tension between proximity-to-consumer and proximity-to-production logic that is reshaping facility location decisions across sectors.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ VULNERABILITY FRAMEWORK ═══════════════════════════════════ -->
+<section class="section" id="vulnerability-framework">
+  <div class="section-number">§ 03 — Analytical Framework</div>
+  <h2>Supply Chain <em>Vulnerability</em> Framework</h2>
+  <div class="section-rule"></div>
+
+  <p>The SSCRI assessment framework is built on ten analytically distinct dimensions, each measuring a separable component of structural industrial resilience. The dimensions are not weighted equally across all sectors — a pharmaceutical supply chain's vulnerability profile differs materially from that of a semiconductor foundry — and the framework is applied with sector-adjusted weighting where indicated.</p>
+
+  <div class="framework-grid">
+    <div class="framework-item">
+      <div class="fi-num">01</div>
+      <div class="fi-title">Manufacturing Depth</div>
+      <div class="fi-desc">Measures the breadth and complexity of domestic manufacturing capability: the degree to which an economy can produce intermediate and final goods across the industrial value chain without critical external dependencies at key process stages.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">02</div>
+      <div class="fi-title">Strategic Dependency Risk</div>
+      <div class="fi-desc">Assesses the concentration of external sourcing in geopolitically sensitive categories — advanced inputs, critical materials, and technology components where supply interruption cannot be rapidly absorbed through substitution or inventory.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">03</div>
+      <div class="fi-title">Logistics Infrastructure Resilience</div>
+      <div class="fi-desc">Evaluates port capacity, inland freight efficiency, multi-modal connectivity, and the structural capacity of logistics networks to absorb disruption without cascading into production stoppages.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">04</div>
+      <div class="fi-title">Energy Stability</div>
+      <div class="fi-desc">Examines energy import dependency, grid reliability, cost competitiveness for energy-intensive manufacturing, and the trajectory of energy security investment — particularly relevant for industrial automation, electrochemical production, and metals processing.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">05</div>
+      <div class="fi-title">Semiconductor Exposure</div>
+      <div class="fi-desc">Assesses the degree to which an economy's industrial and defense output depends on externally sourced semiconductors, with particular attention to advanced node dependency and the absence of credible domestic foundry alternatives.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">06</div>
+      <div class="fi-title">Industrial Workforce Capacity</div>
+      <div class="fi-desc">Evaluates the availability of skilled industrial labor — engineering graduates, technical vocationalists, and manufacturing-grade workforce — alongside wage trajectory, demographic sustainability, and labor productivity metrics.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">07</div>
+      <div class="fi-title">Digital Industrial Readiness</div>
+      <div class="fi-desc">Measures technology infrastructure supporting industrial digitalization: automation adoption rates, industrial data connectivity, manufacturing ERP penetration, and the regulatory environment governing digital industrial deployment.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">08</div>
+      <div class="fi-title">Trade Diversification</div>
+      <div class="fi-desc">Assesses the breadth of trading partner relationships and the concentration risk in both export markets and import sourcing. High dependence on single partners for critical inputs or export revenue creates structural fragility.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">09</div>
+      <div class="fi-title">Supply Chain Redundancy</div>
+      <div class="fi-desc">Examines the availability of alternative sourcing pathways, inventory buffer policies, dual-sourcing practices, and the degree to which production systems are designed with geographic and supplier redundancy built in.</div>
+    </div>
+    <div class="framework-item">
+      <div class="fi-num">10</div>
+      <div class="fi-title">Critical Resource Access</div>
+      <div class="fi-desc">Evaluates domestic resource endowments, secured resource agreements, strategic stockpile policies, and exposure to critical material supply disruption in minerals, rare earths, energy feedstocks, and advanced chemical inputs.</div>
+    </div>
+  </div>
+
+  <div class="callout callout-gold">
+    <div class="callout-label">Scoring Methodology Note</div>
+    <p>Each dimension is scored on a 1–10 ordinal scale, with 10 representing maximum observed resilience within the assessed peer group and 1 representing maximum observed exposure. Scores reflect analytical judgment applied to comparative macroeconomic and industrial data drawn from public sources. They are not derived from a proprietary dataset and should be treated as directional assessments rather than precise measurements. Full methodology is provided in Section 14.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ COUNTRY ANALYSIS ═══════════════════════════════════ -->
+<section class="section section-dark" id="country-analysis">
+  <div class="section-number">§ 04 — Country Readiness Analysis</div>
+  <h2>Economy-Level <em>Resilience</em> Profiles</h2>
+  <div class="section-rule"></div>
+
+  <p>The following profiles present structured analytical assessments of each economy's industrial resilience position. They address structural strengths, principal vulnerabilities, and the strategic dynamics shaping each economy's industrial trajectory over the near-to-medium term.</p>
+
+  <h3>United States</h3>
+  <p>The United States retains the deepest institutional manufacturing base of any assessed economy, anchored by defense-industrial capacity, semiconductor design leadership, aerospace and medical device manufacturing, and a strong regulatory and intellectual property environment that supports long-cycle industrial investment. The CHIPS and Science Act represents the most significant domestic industrial policy intervention in decades, with committed capital directed toward advanced semiconductor fabrication.</p>
+  <p>Vulnerabilities are concentrated at the input layer: the US is critically exposed to external foundry capacity for advanced chips, dependent on Chinese processing for rare earth elements used in defense systems, and facing a structural deficit in manufacturing workforce depth for labor-intensive industrial categories. Near-shoring arrangements with Mexico and Canada provide partial mitigation but do not resolve strategic input dependencies.</p>
+
+  <div class="callout">
+    <div class="callout-label">Strategic Assessment · USA</div>
+    <p>Resilience is anchored in institutional depth, dollar-denominated trade leverage, and technology ecosystem strength. The principal structural risk lies in the gap between policy ambition — particularly in semiconductor fabrication and critical minerals — and the timeline required to translate capital investment into operational capacity.</p>
+  </div>
+
+  <h3>China</h3>
+  <p>China's industrial resilience profile is defined by extraordinary manufacturing breadth — the only economy among those assessed that has achieved deep integration across the full industrial value chain from raw material processing through finished goods production. This structural depth provides a form of systemic resilience that no other assessed economy approaches in scale.</p>
+  <p>The principal vulnerabilities are concentrated at the technology access layer: restricted access to advanced semiconductor manufacturing equipment, EDA software, and high-end optical lithography systems creates a ceiling on domestic advanced chip production. This is not a near-term industrial crisis, but a long-term trajectory constraint that China's domestic technology program is working to address with mixed results to date. External demand fragmentation — as Western economies deliberate over supply chain diversification away from Chinese production — creates revenue and utilization risk across export-oriented manufacturing sectors.</p>
+
+  <h3>India</h3>
+  <p>India's industrial resilience position is shaped by the tension between structural opportunity and operational constraint. The scale of the domestic market, the size and relative youth of the workforce, political stability under a long-term government with an explicit manufacturing promotion agenda, and the PLI scheme framework create a credible foundation for manufacturing scale-up. Early wins in mobile electronics assembly, pharmaceutical APIs, and defense components provide evidence of trajectory, not just intent.</p>
+  <p>The structural constraints are material: logistics infrastructure — port throughput, road connectivity, cold chain and warehousing — remains significantly below the standard required to support complex, time-sensitive industrial supply chain integration. Power reliability for energy-intensive manufacturing is improving but uneven. Regulatory complexity at the state level continues to impose frictional costs that sophisticated industrial operators factor into location decisions.</p>
+
+  <h3>Germany</h3>
+  <p>Germany's industrial resilience profile reflects decades of Mittelstand-anchored manufacturing investment: deep process engineering capability, world-class industrial machinery and chemical sectors, and a sophisticated vocational training ecosystem that produces reliable industrial workforce supply. The Fraunhofer institute network provides a public-private interface for industrial technology development that has no direct equivalent among assessed peers.</p>
+  <p>The primary vulnerability exposed by recent years is energy: Germany's industrial competitiveness is structurally sensitive to energy cost and reliability, and the post-2022 energy landscape has imposed real competitive costs on energy-intensive manufacturing categories. Dependency on external semiconductor supply and, historically, a degree of strategic complacency regarding Chinese demand concentration in machinery exports, are secondary but material concerns.</p>
+
+  <h3>Japan</h3>
+  <p>Japan occupies a distinctive position in the assessed peer group: it is the leading global supplier of a narrow set of irreplaceable semiconductor and electronics manufacturing inputs — photoresists, process chemicals, precision optical equipment — yet depends almost entirely on external sources for the energy and raw materials that power its industrial system. This dual profile creates a paradox of strategic value combined with structural resource vulnerability.</p>
+  <p>Japan's economic security legislation, enacted in 2022, reflects a formal policy recognition of supply chain concentration risk. The country has moved rapidly to diversify semiconductor supply relationships and is deepening industrial cooperation with the US and EU. Demographic constraints on industrial workforce supply are the most significant structural challenge over the medium term.</p>
+
+  <h3>South Korea</h3>
+  <p>South Korea's industrial resilience is anchored by the DRAM and NAND memory semiconductor duopoly held by Samsung and SK Hynix, combined with sophisticated petrochemical, shipbuilding, and EV battery manufacturing capabilities. These positions reflect decades of concentrated public-private industrial investment and are genuinely difficult to replicate at speed.</p>
+  <p>Vulnerabilities include a high degree of China export concentration, energy import dependence, and, in common with Japan, demographic pressure on industrial workforce renewal. South Korea's geopolitical position — wedged between the US and China in trade and security terms — creates ongoing exposure to geopolitical alignment cost.</p>
+
+  <h3>Taiwan</h3>
+  <p>Taiwan's industrial profile is, in absolute terms, one of the most strategically anomalous in the global system. TSMC and the broader foundry ecosystem account for a proportion of advanced semiconductor manufacturing that creates a global systemic dependency. The concentration of this capability in a territory subject to ongoing geopolitical contestation generates a risk externality that extends across every economy that depends on advanced chip supply — which is, at this stage, essentially all of them.</p>
+  <p>Taiwan's resilience framework score is sector-specific: within its foundry domain, it represents maximum capability concentration. Across other resilience dimensions, particularly energy security, import dependency, and geographic risk, it scores at or near the floor of the assessed group.</p>
+
+  <h3>Vietnam</h3>
+  <p>Vietnam has become a significant beneficiary of China+1 supply chain restructuring, particularly in electronics assembly, apparel, and light manufacturing. Its geographic position, relatively low labor costs, improving logistics infrastructure (centered on Ho Chi Minh City and Hanoi), and pro-investment policy posture have made it an attractive relocation destination for assembly-stage manufacturing.</p>
+  <p>Its resilience score is constrained by thin manufacturing depth — most Vietnamese industrial activity remains in assembly and lower-value-added stages, with limited domestic supply of the components assembled. This means Vietnam's industrial performance is highly sensitive to upstream supply continuity from China, which introduces a structural irony into its positioning as a China+1 alternative.</p>
+
+  <h3>Mexico</h3>
+  <p>Mexico's industrial resilience profile benefits materially from USMCA-anchored trade access to the US market and geographic proximity that enables just-in-time supply chain integration with US industrial facilities in automotive, aerospace, and electronics. The northern industrial corridor — Monterrey, Juárez, Tijuana — has attracted significant FDI relocation from both Asian and European manufacturers seeking US market access without full US production cost structures.</p>
+  <p>Security conditions in certain regions, infrastructure quality outside major urban corridors, judicial system reliability for commercial contract enforcement, and water access constraints in industrial zones represent the primary structural limitations on Mexico's capacity to absorb additional sophisticated manufacturing investment.</p>
+</section>
+
+<!-- ═══════════════════════════════════ SECTOR RISK ═══════════════════════════════════ -->
+<section class="section" id="sector-risk">
+  <div class="section-number">§ 05 — Sector Risk Analysis</div>
+  <h2><em>Industry-Level</em> Vulnerability Profiles</h2>
+  <div class="section-rule"></div>
+
+  <p>The following analysis addresses the structural risk profile of each of the eight industries assessed, examining the nature of supply chain concentration, principal exposure points, and the strategic dynamics shaping resilience trajectories within each sector.</p>
+
+  <div class="sector-grid">
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <div class="sector-name">Semiconductors</div>
+        <div class="sector-risk-badge srb-critical">Critical</div>
+      </div>
+      <p class="sector-text">The semiconductor supply chain represents the most concentrated strategic chokepoint in the global industrial system. Advanced node fabrication (sub-7nm) is effectively consolidated at TSMC (Taiwan) and Samsung (South Korea), with Intel's US foundry capacity at an earlier development stage. Equipment supply is concentrated among ASML (Netherlands), Applied Materials, Lam Research, and KLA (all US). The chokepoint density — geographic, corporate, and technical — is without precedent in other analyzed sectors. Disruption at any point in this chain carries second-order effects across defense, automotive, consumer electronics, and industrial control systems.</p>
+    </div>
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <div class="sector-name">EV Manufacturing</div>
+        <div class="sector-risk-badge srb-critical">Critical</div>
+      </div>
+      <p class="sector-text">Electric vehicle supply chains carry compounding vulnerability: battery cell production is dominated by Chinese manufacturers (CATL, BYD) and Korean suppliers (LG Energy, Samsung SDI, SK On). Upstream, lithium carbonate processing is concentrated in China (~65% of refined output), cobalt in the DRC with Chinese processing, and rare earth permanent magnets overwhelmingly in China. Western OEMs have accelerated battery localization programs (US IRA incentives, EU battery regulation), but supply chain indigenization at meaningful scale requires a decade-plus horizon under best-case investment trajectories.</p>
+    </div>
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <div class="sector-name">Pharmaceuticals</div>
+        <div class="sector-risk-badge srb-high">Elevated</div>
+      </div>
+      <p class="sector-text">API (active pharmaceutical ingredient) supply concentration in India and China — each supplying approximately one-third of global generic API volume — creates a bilateral dependency for pharmaceutical supply chains globally. Western finished-dose manufacturers are structurally dependent on this input layer. The pandemic period brought this into policy focus, driving near-shoring investment in Europe and partial domestic API capability expansion in the US. India's pharmaceutical sector is moving deliberately toward higher-value formulation and biologics while defending its API supply position.</p>
+    </div>
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <div class="sector-name">Electronics Manufacturing</div>
+        <div class="sector-risk-badge srb-critical">Critical</div>
+      </div>
+      <p class="sector-text">Consumer and industrial electronics manufacturing remains heavily concentrated in Greater China (Mainland, Taiwan, South Korea), with final assembly consolidation in China's Pearl River Delta and Yangtze River Delta clusters. EMS provider consolidation — Foxconn, Pegatron, Wistron, Compal — creates a single-provider dependency structure for multiple global OEM brands. Vietnam and India have attracted meaningful assembly relocation but remain dependent on Chinese component supply for the majority of electronic inputs. Full value chain replication outside of China at scale is a decade-plus undertaking.</p>
+    </div>
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <div class="sector-name">Industrial Automation</div>
+        <div class="sector-risk-badge srb-moderate">Moderate</div>
+      </div>
+      <p class="sector-text">Industrial automation equipment supply is more geographically distributed than semiconductors or electronics, with Germany, Japan, the US, Switzerland, and China all representing meaningful production and technology positions. Key exposures exist in PLC software, precision servo systems, and collaborative robotics, where a handful of manufacturers hold dominant positions. The competitive dynamic in industrial robotics — particularly Chinese domestic producers gaining market share — is reshaping the sector's future concentration profile. Automation adoption rates remain uneven across the assessed economies, creating divergent productivity trajectories.</p>
+    </div>
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <div class="sector-name">Logistics Infrastructure</div>
+        <div class="sector-risk-badge srb-moderate">Moderate</div>
+      </div>
+      <p class="sector-text">Global logistics system resilience was structurally tested in 2021-2022, revealing the fragility of just-in-time inventory models across shipping, port throughput, and inland freight. The concentration of container shipping in a small number of carrier alliances (2M, Ocean Alliance, THE Alliance) means pricing and capacity volatility propagates rapidly across trade lanes. Port congestion, terminal automation gaps, and intermodal connectivity deficiencies represent structural rather than episodic constraints in emerging market logistics systems, affecting Vietnam, India, and Mexico in particular.</p>
+    </div>
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <div class="sector-name">Critical Minerals</div>
+        <div class="sector-risk-badge srb-critical">Critical</div>
+      </div>
+      <p class="sector-text">Critical mineral supply chains exhibit the most severe processing concentration of any analyzed sector: China controls approximately 85% of global rare earth processing, 70%+ of lithium processing, and a dominant share of cobalt refining. Extraction geography spans multiple continents but processing geography does not. Policy responses — the US Critical Minerals Strategy, EU Critical Raw Materials Act, India's mineral mission — are directionally sound but face a structural gap: processing capacity cannot be replicated within policy-relevant timescales without technology transfer, specialist workforce, and sustained capital commitment that has not yet materialized at required scale.</p>
+    </div>
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <div class="sector-name">Defense Manufacturing</div>
+        <div class="sector-risk-badge srb-high">Elevated</div>
+      </div>
+      <p class="sector-text">Defense industrial supply chains carry a compound exposure: they depend on commercial semiconductor supply at multiple system levels, on critical minerals for guidance, propulsion, and communications systems, and on an increasingly thin specialized supplier base for certain precision components. Ukraine conflict-driven demand has stressed Western defense production capacity, revealing structural gaps in munitions manufacturing surge capacity. The integration of commercial technology into defense platforms — attractive for cost and innovation access — has introduced commercial supply chain dependencies into previously isolated defense industrial systems.</p>
+    </div>
+  </div>
+
+  <h3>Cross-Sector Risk Concentration Summary</h3>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Sector</th>
+          <th>Primary Chokepoint</th>
+          <th>Key Dependency</th>
+          <th>Risk Level</th>
+          <th>Diversification Horizon</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-country">Semiconductors</td><td>Advanced node foundry (Taiwan)</td><td>TSMC / ASML</td><td><span class="chip chip-low">Critical</span></td><td class="td-mono">10–15 yr</td></tr>
+        <tr><td class="td-country">EV Manufacturing</td><td>Battery cell + minerals processing</td><td>China (CATL, minerals)</td><td><span class="chip chip-low">Critical</span></td><td class="td-mono">8–12 yr</td></tr>
+        <tr><td class="td-country">Pharmaceuticals</td><td>API production</td><td>India / China</td><td><span class="chip chip-mid">Elevated</span></td><td class="td-mono">5–8 yr</td></tr>
+        <tr><td class="td-country">Electronics</td><td>Assembly + component supply</td><td>Greater China</td><td><span class="chip chip-low">Critical</span></td><td class="td-mono">10+ yr</td></tr>
+        <tr><td class="td-country">Industrial Automation</td><td>PLC / servo systems</td><td>Japan / Germany / US</td><td><span class="chip chip-watch">Moderate</span></td><td class="td-mono">3–6 yr</td></tr>
+        <tr><td class="td-country">Logistics</td><td>Container carrier capacity</td><td>Alliance structures</td><td><span class="chip chip-watch">Moderate</span></td><td class="td-mono">2–5 yr</td></tr>
+        <tr><td class="td-country">Critical Minerals</td><td>Processing (rare earth / lithium)</td><td>China</td><td><span class="chip chip-low">Critical</span></td><td class="td-mono">10–20 yr</td></tr>
+        <tr><td class="td-country">Defense Mfg</td><td>Munitions + precision components</td><td>Commercial chip supply</td><td><span class="chip chip-mid">Elevated</span></td><td class="td-mono">4–7 yr</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ SEMICONDUCTOR CHOKEPOINTS ═══════════════════════════════════ -->
+<section class="section section-alt" id="semiconductor">
+  <div class="section-number">§ 06 — Semiconductor Analysis</div>
+  <h2>Semiconductor Dependency &amp; <em>Strategic Chokepoints</em></h2>
+  <div class="section-rule"></div>
+
+  <p>No component of the global industrial system carries a comparable combination of strategic criticality and supply concentration to advanced semiconductor manufacturing. The integrated circuit underpins not only consumer electronics but defense guidance systems, automotive safety-critical controls, industrial automation platforms, telecommunications infrastructure, and medical device operation. The fact that the fabrication of advanced-node chips — required for most of these applications — is concentrated in a single geography that is subject to active geopolitical contestation is, from a systemic resilience perspective, the most significant structural risk in the global industrial economy.</p>
+
+  <div class="pullquote">
+    <p>Advanced semiconductor fabrication is the only industrial capability in the assessed global system where a single company — TSMC — produces a category of output for which there is, at present, no credible alternative at the required specification. This is a systemic anomaly without precedent in modern industrial history.</p>
+  </div>
+
+  <h3>The TSMC Dependency Structure</h3>
+  <p>Taiwan Semiconductor Manufacturing Company produces approximately 90–92% of the world's most advanced logic chips (sub-5nm process nodes). Its customers include the design arms of Apple, NVIDIA, AMD, Qualcomm, Broadcom, and effectively every major fabless semiconductor company. Intel and Samsung operate competitive foundry programs, but neither has yet demonstrated equivalent advanced node yield, capacity scale, or client adoption at TSMC's level. The technical gap in extreme ultraviolet lithography (EUV) utilization — where TSMC's process maturity exceeds peers — is measured in years, not quarters.</p>
+
+  <h3>Equipment Supply Concentration</h3>
+  <p>TSMC's foundry capability depends in turn on a concentrated equipment supply chain. ASML (Netherlands) is the sole global manufacturer of EUV lithography machines — equipment without which advanced-node chip production is not achievable. This creates a second-order chokepoint: even if a government successfully builds domestic foundry capacity, it depends on access to ASML equipment, which is itself subject to export control regimes increasingly influenced by US-Netherlands diplomatic alignment. Applied Materials, Lam Research, and KLA (all US-headquartered) collectively dominate the process equipment market adjacent to lithography.</p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Economy</th>
+          <th>Domestic Fab Capacity</th>
+          <th>Advanced Node Access</th>
+          <th>Equipment Sovereignty</th>
+          <th>Policy Response</th>
+          <th>Exposure Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-country">USA</td><td>Legacy + emerging (Intel, TSMC AZ)</td><td>External (TSMC)</td><td>Partial (equipment dominant)</td><td>CHIPS Act ($52B+)</td><td><span class="chip chip-mid">Managed</span></td></tr>
+        <tr><td class="td-country">China</td><td>Mature nodes (SMIC)</td><td>Restricted (&lt;7nm)</td><td>Denied (EUV)</td><td>Domestic push ($150B+)</td><td><span class="chip chip-low">Critical</span></td></tr>
+        <tr><td class="td-country">Taiwan</td><td>Global leading (TSMC)</td><td>Full (sovereign)</td><td>Dependent (ASML/US)</td><td>Geopolitical hedge</td><td><span class="chip chip-high">Asymmetric</span></td></tr>
+        <tr><td class="td-country">South Korea</td><td>Memory + advanced logic (Samsung)</td><td>Near-peer (Samsung)</td><td>Dependent</td><td>K-Chips Act</td><td><span class="chip chip-mid">Managed</span></td></tr>
+        <tr><td class="td-country">Japan</td><td>Legacy; Rapidus (advanced, early stage)</td><td>Developing</td><td>Partial (JSEM)</td><td>METI program</td><td><span class="chip chip-mid">Elevated</span></td></tr>
+        <tr><td class="td-country">Germany / EU</td><td>Limited (Infineon, legacy TSMC EU)</td><td>External</td><td>ASML (NL)</td><td>European Chips Act</td><td><span class="chip chip-mid">Elevated</span></td></tr>
+        <tr><td class="td-country">India</td><td>Nascent (PLI, Micron testing)</td><td>None (current)</td><td>None</td><td>₹76,000 Cr scheme</td><td><span class="chip chip-low">Critical</span></td></tr>
+        <tr><td class="td-country">Vietnam</td><td>Testing/packaging only</td><td>None</td><td>None</td><td>Limited</td><td><span class="chip chip-low">Critical</span></td></tr>
+        <tr><td class="td-country">Mexico</td><td>None significant</td><td>None</td><td>None</td><td>None established</td><td><span class="chip chip-low">Critical</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warn">
+    <div class="callout-label">Structural Risk Assessment</div>
+    <p>The semiconductor chokepoint is uniquely resistant to rapid policy remediation. Advanced fab construction requires 4–5 years from groundbreaking to initial production, yield ramping extends the effective timeline further, and the workforce specialization required cannot be built through standard educational pipelines in policy-relevant timeframes. Industrial policy is a necessary but insufficient response within any planning horizon shorter than fifteen years.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ CHINA+1 ═══════════════════════════════════ -->
+<section class="section" id="china-plus-one">
+  <div class="section-number">§ 07 — Manufacturing Transition</div>
+  <h2>China+1 Manufacturing <em>Transition</em></h2>
+  <div class="section-rule"></div>
+
+  <p>The China+1 manufacturing strategy — the structural diversification of production away from exclusive China concentration toward supplementary or alternative manufacturing locations — has moved from a procurement option to a near-universal corporate policy mandate across multinational industrial firms over the past five years. The drivers are multiple and mutually reinforcing: tariff exposure, geopolitical risk premium applied by boards and investors, supply disruption memory from the pandemic period, and ESG reporting pressures related to labor and governance standards.</p>
+
+  <h3>Destination Analysis</h3>
+
+  <h4>Vietnam — The Assembly Beneficiary</h4>
+  <p>Vietnam has been the clearest beneficiary of China+1 manufacturing displacement, attracting significant FDI in electronics assembly (Samsung, Intel), apparel, and footwear. Its geographic position adjacent to Southern China supply chains, improving port infrastructure in Ho Chi Minh City and Hai Phong, and a pro-investment government posture have made it a natural first-destination for labor-intensive assembly relocation. The structural constraint is that Vietnam's manufacturing ecosystem remains thin: most of the components assembled by factories in Vietnam continue to originate from China, creating a structural dependency that is partially offset by geographic proximity but remains an operational reality.</p>
+
+  <h4>India — The Scale Proposition</h4>
+  <p>India's attraction as a China+1 destination rests on a different logic than Vietnam's: scale, market size, and long-term demographic trajectory rather than proximity and cost. The PLI (Production-Linked Incentive) scheme has catalyzed mobile phone assembly (Apple's Foxconn and Tata operations), pharmaceutical API capacity, and initial electronics component manufacturing. The structural challenge for India relative to Vietnam is infrastructure — logistics, power, water — which constrains the density of industrial production achievable in specific zones, even where the talent and labor supply exists to support it.</p>
+
+  <h4>Mexico — The Nearshoring Anchor</h4>
+  <p>Mexico's China+1 role is functionally distinct from Vietnam and India: it is serving US nearshoring demand rather than global diversification demand. The USMCA framework, geographic proximity enabling truck-based delivery timelines, and a mature automotive and aerospace supply base make Mexico the natural first-call destination for US manufacturers rationalizing Chinese production exposure. The northern industrial zones have absorbed meaningful investment in automotive components, medical devices, electronics, and aerospace. Constraints are real but addressable: infrastructure outside established corridors, security environment in certain zones, and water availability in desert industrial areas.</p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Factor</th>
+          <th>Vietnam</th>
+          <th>India</th>
+          <th>Mexico</th>
+          <th>Assessment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Labor Cost</strong></td><td class="td-mono"><span class="chip chip-high">Low</span></td><td class="td-mono"><span class="chip chip-high">Low</span></td><td class="td-mono"><span class="chip chip-mid">Mid</span></td><td>Vietnam/India advantage for labor-intensive</td></tr>
+        <tr><td><strong>Logistics Quality</strong></td><td class="td-mono"><span class="chip chip-mid">Medium</span></td><td class="td-mono"><span class="chip chip-mid">Developing</span></td><td class="td-mono"><span class="chip chip-high">Strong (N.)</span></td><td>Mexico leads for US-bound supply chains</td></tr>
+        <tr><td><strong>Market Access</strong></td><td class="td-mono"><span class="chip chip-watch">ASEAN</span></td><td class="td-mono"><span class="chip chip-watch">Domestic</span></td><td class="td-mono"><span class="chip chip-high">USMCA</span></td><td>Mexico uniquely positioned for US market</td></tr>
+        <tr><td><strong>Mfg. Depth</strong></td><td class="td-mono"><span class="chip chip-low">Assembly</span></td><td class="td-mono"><span class="chip chip-mid">Growing</span></td><td class="td-mono"><span class="chip chip-mid">Established</span></td><td>India deepening; Mexico most mature</td></tr>
+        <tr><td><strong>Scale Potential</strong></td><td class="td-mono"><span class="chip chip-mid">Moderate</span></td><td class="td-mono"><span class="chip chip-high">Very High</span></td><td class="td-mono"><span class="chip chip-mid">Moderate</span></td><td>India wins on long-term scale logic</td></tr>
+        <tr><td><strong>China Input Dep.</strong></td><td class="td-mono"><span class="chip chip-low">High</span></td><td class="td-mono"><span class="chip chip-mid">Medium</span></td><td class="td-mono"><span class="chip chip-mid">Medium</span></td><td>Vietnam most exposed; systemic irony</td></tr>
+        <tr><td><strong>Political Stability</strong></td><td class="td-mono"><span class="chip chip-high">High</span></td><td class="td-mono"><span class="chip chip-high">High</span></td><td class="td-mono"><span class="chip chip-mid">Medium</span></td><td>Mexico security context a live variable</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-gold">
+    <div class="callout-label">Analytical Judgment</div>
+    <p>No single China+1 destination replicates the integrated supply ecosystem that makes Chinese production so cost-efficient for complex manufactured goods. The realistic near-term outcome is a bifurcated structure: China retaining complex, integrated manufacturing; alternative locations absorbing assembly, simpler components, and market-access-driven production. Full supply chain equivalence outside China in electronics, advanced chemicals, or precision manufacturing is not achievable within a decade at current investment rates.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ INDIA ANALYSIS ═══════════════════════════════════ -->
+<section class="section section-alt" id="india-analysis">
+  <div class="section-number">§ 08 — India Focus</div>
+  <h2>India Industrial <em>Opportunity Analysis</em></h2>
+  <div class="section-rule"></div>
+
+  <p>India's industrial trajectory warrants dedicated analysis within this framework, as it represents the most structurally complex opportunity-constraint balance of any assessed economy. The scale of what India could absorb — in manufacturing FDI, supply chain integration, and export-oriented industrial output — is genuinely large. The pace at which it is absorbing that opportunity is materially below the scale of its structural endowment, and understanding the gap between potential and execution is analytically important for any enterprise or policy audience assessing India's industrial role over the next decade.</p>
+
+  <div class="stat-row">
+    <div class="stat-item">
+      <span class="inline-stat" style="color:var(--teal)">1.4B+</span>
+      <span class="stat-label">Population; working-age demographic advantage extends ~20 years</span>
+    </div>
+    <div class="stat-item">
+      <span class="inline-stat" style="color:var(--teal)">~$26B</span>
+      <span class="stat-label">PLI scheme outlay across 14 sectors (announced, phased)</span>
+    </div>
+    <div class="stat-item">
+      <span class="inline-stat" style="color:var(--teal)">3rd</span>
+      <span class="stat-label">Largest pharmaceutical exporter globally by volume</span>
+    </div>
+  </div>
+
+  <h3>Structural Advantages</h3>
+  <p><strong>Workforce Scale and Cost:</strong> India's engineering graduate output is among the largest globally, and its industrial labor cost structure remains competitive with Vietnam and significantly below China for most manufacturing categories. The demographic dividend — a working-age population that will remain structurally young for two decades — is a genuine medium-term advantage that no other large-economy peer can claim.</p>
+  <p><strong>Pharmaceutical Sector Depth:</strong> India's generic pharmaceutical manufacturing base is a world-class industrial cluster by any metric: 3,000+ FDA-approved manufacturing facilities, dominant API supply position, and a growing capability in biologics and biosimilars. This is not emerging capacity — it is established, internationally credentialed industrial infrastructure.</p>
+  <p><strong>IT and Defense Integration:</strong> India's software and IT services sector provides a foundation for digital industrial integration that most manufacturing-destination peers lack. Defense manufacturing expansion under the "Make in India" and iDEX frameworks is producing credible outcomes in platforms and components that a decade ago were exclusively imported.</p>
+  <p><strong>Political Stability and Policy Continuity:</strong> The current government's manufacturing promotion posture has maintained consistent direction across multiple budget cycles, providing the policy continuity that sophisticated foreign industrial investors require before committing large-scale capital.</p>
+
+  <h3>Structural Constraints</h3>
+  <p><strong>Logistics Infrastructure Gap:</strong> India's logistics cost as a percentage of GDP — estimated at 13–14% versus 8% in advanced economies — reflects a structural infrastructure deficit that raises the delivered cost of Indian production relative to competitors. Port throughput, multi-modal connectivity, warehousing, and cold-chain logistics all require continued investment before India can credibly claim logistics parity with competing manufacturing destinations for complex goods.</p>
+  <p><strong>Land Acquisition and Regulatory Complexity:</strong> Industrial land assembly in India remains a friction-intensive process, with state-level variation in land acquisition law, environmental clearance timelines, and regulatory approvals creating location-specific risk that is difficult to systematize. Manufacturing investors with options across multiple geographies factor this complexity into location decisions.</p>
+  <p><strong>Power Reliability:</strong> For energy-intensive manufacturing — chemicals, metals, semiconductor fabrication, data centers — India's grid reliability and industrial power cost remain below the threshold required for world-class facility operation in many states. Renewable energy capacity addition is improving the long-term outlook but has not yet resolved operational constraints for existing industrial zones.</p>
+
+  <div class="callout callout-gold">
+    <div class="callout-label">India Industrial Assessment Conclusion</div>
+    <p>India's industrial opportunity is real, substantial, and increasingly being captured in specific sectors. The gap between structural endowment and execution pace is a function of infrastructure, regulatory, and institutional constraints that are recognized and being addressed — but are not resolving at the speed that India's competitive window, or the strategic demand for supply chain diversification, would optimally require. The realistic horizon for India becoming a top-tier manufacturing destination for complex industrial goods at scale is 8–12 years under sustained policy execution.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ SCORECARD ═══════════════════════════════════ -->
+<section class="section" id="scorecard">
+  <div class="section-number">§ 09 — Industrial Resilience Scorecard</div>
+  <h2>Country <em>Resilience</em> Scorecard</h2>
+  <div class="section-rule"></div>
+
+  <p>The following scorecards present each economy's assessed performance across the ten SSCRI framework dimensions. Scores represent analytical judgment applied comparatively within the peer group on a 1–10 ordinal scale. An aggregate Resilience Index Score (RIS) is presented for comparative reference.</p>
+
+  <div class="scorecard-grid">
+    <!-- USA -->
+    <div class="scorecard-country">
+      <div class="sc-header"><span class="sc-name">United States</span><span class="sc-score">7.4</span></div>
+      <div class="sc-body">
+        <div class="sc-dim"><span class="sc-dim-label">Mfg. Depth</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:75%;background:#1e5c52"></div></div><span class="sc-val">7.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Strat. Dependency</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:65%;background:#c8972a"></div></div><span class="sc-val">6.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Logistics</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:80%;background:#1e5c52"></div></div><span class="sc-val">8.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Energy Stability</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:82%;background:#1e5c52"></div></div><span class="sc-val">8.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Semiconductor Exp.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:62%;background:#c8972a"></div></div><span class="sc-val">6.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Workforce</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:75%;background:#1e5c52"></div></div><span class="sc-val">7.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Digital Readiness</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:88%;background:#1e5c52"></div></div><span class="sc-val">8.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Trade Diversif.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:72%;background:#1e5c52"></div></div><span class="sc-val">7.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">SC Redundancy</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:70%;background:#c8972a"></div></div><span class="sc-val">7.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Critical Resources</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:58%;background:#8b1a1a"></div></div><span class="sc-val">5.8</span></div></div>
+      </div>
+    </div>
+
+    <!-- China -->
+    <div class="scorecard-country">
+      <div class="sc-header" style="background:#1e3a5f"><span class="sc-name">China</span><span class="sc-score">7.1</span></div>
+      <div class="sc-body">
+        <div class="sc-dim"><span class="sc-dim-label">Mfg. Depth</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:96%;background:#1e5c52"></div></div><span class="sc-val">9.6</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Strat. Dependency</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:42%;background:#8b1a1a"></div></div><span class="sc-val">4.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Logistics</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:82%;background:#1e5c52"></div></div><span class="sc-val">8.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Energy Stability</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:68%;background:#c8972a"></div></div><span class="sc-val">6.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Semiconductor Exp.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:30%;background:#8b1a1a"></div></div><span class="sc-val">3.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Workforce</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:85%;background:#1e5c52"></div></div><span class="sc-val">8.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Digital Readiness</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:82%;background:#1e5c52"></div></div><span class="sc-val">8.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Trade Diversif.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:62%;background:#c8972a"></div></div><span class="sc-val">6.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">SC Redundancy</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:88%;background:#1e5c52"></div></div><span class="sc-val">8.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Critical Resources</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:90%;background:#1e5c52"></div></div><span class="sc-val">9.0</span></div></div>
+      </div>
+    </div>
+
+    <!-- Germany -->
+    <div class="scorecard-country">
+      <div class="sc-header" style="background:#2d5282"><span class="sc-name">Germany</span><span class="sc-score">7.0</span></div>
+      <div class="sc-body">
+        <div class="sc-dim"><span class="sc-dim-label">Mfg. Depth</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:88%;background:#1e5c52"></div></div><span class="sc-val">8.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Strat. Dependency</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:58%;background:#c8972a"></div></div><span class="sc-val">5.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Logistics</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:90%;background:#1e5c52"></div></div><span class="sc-val">9.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Energy Stability</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:52%;background:#8b1a1a"></div></div><span class="sc-val">5.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Semiconductor Exp.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:55%;background:#c8972a"></div></div><span class="sc-val">5.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Workforce</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:85%;background:#1e5c52"></div></div><span class="sc-val">8.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Digital Readiness</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:75%;background:#1e5c52"></div></div><span class="sc-val">7.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Trade Diversif.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:68%;background:#c8972a"></div></div><span class="sc-val">6.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">SC Redundancy</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:72%;background:#c8972a"></div></div><span class="sc-val">7.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Critical Resources</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:55%;background:#c8972a"></div></div><span class="sc-val">5.5</span></div></div>
+      </div>
+    </div>
+
+    <!-- Japan -->
+    <div class="scorecard-country">
+      <div class="sc-header" style="background:#3d3830"><span class="sc-name">Japan</span><span class="sc-score">6.8</span></div>
+      <div class="sc-body">
+        <div class="sc-dim"><span class="sc-dim-label">Mfg. Depth</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:88%;background:#1e5c52"></div></div><span class="sc-val">8.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Strat. Dependency</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:52%;background:#8b1a1a"></div></div><span class="sc-val">5.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Logistics</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:82%;background:#1e5c52"></div></div><span class="sc-val">8.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Energy Stability</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:48%;background:#8b1a1a"></div></div><span class="sc-val">4.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Semiconductor Exp.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:70%;background:#c8972a"></div></div><span class="sc-val">7.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Workforce</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:65%;background:#c8972a"></div></div><span class="sc-val">6.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Digital Readiness</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:72%;background:#c8972a"></div></div><span class="sc-val">7.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Trade Diversif.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:62%;background:#c8972a"></div></div><span class="sc-val">6.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">SC Redundancy</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:68%;background:#c8972a"></div></div><span class="sc-val">6.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Critical Resources</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:45%;background:#8b1a1a"></div></div><span class="sc-val">4.5</span></div></div>
+      </div>
+    </div>
+
+    <!-- South Korea -->
+    <div class="scorecard-country">
+      <div class="sc-header" style="background:#1e5c52"><span class="sc-name">South Korea</span><span class="sc-score">6.7</span></div>
+      <div class="sc-body">
+        <div class="sc-dim"><span class="sc-dim-label">Mfg. Depth</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:85%;background:#1e5c52"></div></div><span class="sc-val">8.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Strat. Dependency</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:48%;background:#8b1a1a"></div></div><span class="sc-val">4.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Logistics</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:78%;background:#1e5c52"></div></div><span class="sc-val">7.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Energy Stability</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:52%;background:#8b1a1a"></div></div><span class="sc-val">5.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Semiconductor Exp.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:80%;background:#1e5c52"></div></div><span class="sc-val">8.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Workforce</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:72%;background:#c8972a"></div></div><span class="sc-val">7.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Digital Readiness</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:82%;background:#1e5c52"></div></div><span class="sc-val">8.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Trade Diversif.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:50%;background:#8b1a1a"></div></div><span class="sc-val">5.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">SC Redundancy</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:62%;background:#c8972a"></div></div><span class="sc-val">6.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Critical Resources</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:42%;background:#8b1a1a"></div></div><span class="sc-val">4.2</span></div></div>
+      </div>
+    </div>
+
+    <!-- Taiwan -->
+    <div class="scorecard-country">
+      <div class="sc-header" style="background:#8b1a1a"><span class="sc-name">Taiwan</span><span class="sc-score">6.2*</span></div>
+      <div class="sc-body">
+        <div class="sc-dim"><span class="sc-dim-label">Mfg. Depth</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:95%;background:#1e5c52"></div></div><span class="sc-val">9.5†</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Strat. Dependency</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:35%;background:#8b1a1a"></div></div><span class="sc-val">3.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Logistics</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:72%;background:#c8972a"></div></div><span class="sc-val">7.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Energy Stability</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:40%;background:#8b1a1a"></div></div><span class="sc-val">4.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Semiconductor Exp.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:98%;background:#1e5c52"></div></div><span class="sc-val">9.8†</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Workforce</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:78%;background:#1e5c52"></div></div><span class="sc-val">7.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Digital Readiness</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:85%;background:#1e5c52"></div></div><span class="sc-val">8.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Trade Diversif.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:45%;background:#8b1a1a"></div></div><span class="sc-val">4.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">SC Redundancy</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:38%;background:#8b1a1a"></div></div><span class="sc-val">3.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Critical Resources</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:35%;background:#8b1a1a"></div></div><span class="sc-val">3.5</span></div></div>
+      </div>
+    </div>
+
+    <!-- India -->
+    <div class="scorecard-country">
+      <div class="sc-header" style="background:#4a3520"><span class="sc-name">India</span><span class="sc-score">5.3</span></div>
+      <div class="sc-body">
+        <div class="sc-dim"><span class="sc-dim-label">Mfg. Depth</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:55%;background:#c8972a"></div></div><span class="sc-val">5.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Strat. Dependency</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:62%;background:#c8972a"></div></div><span class="sc-val">6.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Logistics</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:48%;background:#8b1a1a"></div></div><span class="sc-val">4.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Energy Stability</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:52%;background:#c8972a"></div></div><span class="sc-val">5.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Semiconductor Exp.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:25%;background:#8b1a1a"></div></div><span class="sc-val">2.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Workforce</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:78%;background:#1e5c52"></div></div><span class="sc-val">7.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Digital Readiness</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:62%;background:#c8972a"></div></div><span class="sc-val">6.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Trade Diversif.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:65%;background:#c8972a"></div></div><span class="sc-val">6.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">SC Redundancy</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:42%;background:#8b1a1a"></div></div><span class="sc-val">4.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Critical Resources</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:60%;background:#c8972a"></div></div><span class="sc-val">6.0</span></div></div>
+      </div>
+    </div>
+
+    <!-- Vietnam -->
+    <div class="scorecard-country">
+      <div class="sc-header" style="background:#1e3a5f"><span class="sc-name">Vietnam</span><span class="sc-score">4.6</span></div>
+      <div class="sc-body">
+        <div class="sc-dim"><span class="sc-dim-label">Mfg. Depth</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:45%;background:#c8972a"></div></div><span class="sc-val">4.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Strat. Dependency</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:38%;background:#8b1a1a"></div></div><span class="sc-val">3.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Logistics</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:55%;background:#c8972a"></div></div><span class="sc-val">5.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Energy Stability</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:52%;background:#c8972a"></div></div><span class="sc-val">5.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Semiconductor Exp.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:20%;background:#8b1a1a"></div></div><span class="sc-val">2.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Workforce</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:62%;background:#c8972a"></div></div><span class="sc-val">6.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Digital Readiness</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:52%;background:#c8972a"></div></div><span class="sc-val">5.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Trade Diversif.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:58%;background:#c8972a"></div></div><span class="sc-val">5.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">SC Redundancy</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:32%;background:#8b1a1a"></div></div><span class="sc-val">3.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Critical Resources</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:50%;background:#c8972a"></div></div><span class="sc-val">5.0</span></div></div>
+      </div>
+    </div>
+
+    <!-- Mexico -->
+    <div class="scorecard-country">
+      <div class="sc-header" style="background:#2d5a2d"><span class="sc-name">Mexico</span><span class="sc-score">4.8</span></div>
+      <div class="sc-body">
+        <div class="sc-dim"><span class="sc-dim-label">Mfg. Depth</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:55%;background:#c8972a"></div></div><span class="sc-val">5.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Strat. Dependency</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:50%;background:#c8972a"></div></div><span class="sc-val">5.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Logistics</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:60%;background:#c8972a"></div></div><span class="sc-val">6.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Energy Stability</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:55%;background:#c8972a"></div></div><span class="sc-val">5.5</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Semiconductor Exp.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:18%;background:#8b1a1a"></div></div><span class="sc-val">1.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Workforce</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:60%;background:#c8972a"></div></div><span class="sc-val">6.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Digital Readiness</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:50%;background:#c8972a"></div></div><span class="sc-val">5.0</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Trade Diversif.</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:42%;background:#8b1a1a"></div></div><span class="sc-val">4.2</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">SC Redundancy</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:48%;background:#8b1a1a"></div></div><span class="sc-val">4.8</span></div></div>
+        <div class="sc-dim"><span class="sc-dim-label">Critical Resources</span><div class="sc-dim-bar"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:55%;background:#c8972a"></div></div><span class="sc-val">5.5</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink-faint);margin-top:0.5rem;">
+    * Taiwan's aggregate RIS reflects structural vulnerability outside its foundry domain. † Sector-specific score within semiconductor manufacturing only; does not reflect overall economy resilience. Scores are analytical assessments, not actuarial measurements.
+  </p>
+
+  <!-- Summary Table -->
+  <h3>Composite Resilience Index Ranking</h3>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th><th>Economy</th><th>RIS Score</th><th>Strongest Dimension</th><th>Principal Vulnerability</th><th>Trajectory</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-mono">1</td><td class="td-country">United States</td><td class="td-mono"><strong>7.4</strong></td><td>Digital Readiness</td><td>Critical minerals access</td><td><span class="chip chip-high">Improving</span></td></tr>
+        <tr><td class="td-mono">2</td><td class="td-country">China</td><td class="td-mono"><strong>7.1</strong></td><td>Manufacturing Depth</td><td>Advanced semiconductor access</td><td><span class="chip chip-mid">Constrained</span></td></tr>
+        <tr><td class="td-mono">3</td><td class="td-country">Germany</td><td class="td-mono"><strong>7.0</strong></td><td>Logistics + Workforce</td><td>Energy cost/stability</td><td><span class="chip chip-mid">Stabilizing</span></td></tr>
+        <tr><td class="td-mono">4</td><td class="td-country">Japan</td><td class="td-mono"><strong>6.8</strong></td><td>Manufacturing Depth</td><td>Energy + resource import dep.</td><td><span class="chip chip-mid">Improving</span></td></tr>
+        <tr><td class="td-mono">5</td><td class="td-country">South Korea</td><td class="td-mono"><strong>6.7</strong></td><td>Semiconductor position</td><td>China trade concentration</td><td><span class="chip chip-mid">Stable</span></td></tr>
+        <tr><td class="td-mono">6</td><td class="td-country">Taiwan</td><td class="td-mono"><strong>6.2*</strong></td><td>Foundry capability</td><td>Geopolitical / energy / imports</td><td><span class="chip chip-low">Vulnerable</span></td></tr>
+        <tr><td class="td-mono">7</td><td class="td-country">India</td><td class="td-mono"><strong>5.3</strong></td><td>Workforce capacity</td><td>Logistics + semiconductor</td><td><span class="chip chip-high">Improving</span></td></tr>
+        <tr><td class="td-mono">8</td><td class="td-country">Mexico</td><td class="td-mono"><strong>4.8</strong></td><td>USMCA access</td><td>Security + trade concentration</td><td><span class="chip chip-mid">Stable</span></td></tr>
+        <tr><td class="td-mono">9</td><td class="td-country">Vietnam</td><td class="td-mono"><strong>4.6</strong></td><td>Cost position</td><td>China input dependency</td><td><span class="chip chip-mid">Improving</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ RISK MATRIX ═══════════════════════════════════ -->
+<section class="section section-dark" id="risk-matrix">
+  <div class="section-number">§ 10 — Strategic Risk Matrix</div>
+  <h2>Strategic <em>Risk</em> Assessment Matrix</h2>
+  <div class="section-rule"></div>
+
+  <p>The following matrix maps identified risks across two axes — probability of disruption occurrence and severity of impact on assessed economies — providing a structured risk prioritization framework for policymakers and enterprise planning functions.</p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Risk Category</th>
+          <th>Probability (5yr)</th>
+          <th>Impact Severity</th>
+          <th>Affected Economies</th>
+          <th>Key Sector</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Taiwan Strait disruption</strong></td>
+          <td class="td-mono">Medium-High</td>
+          <td class="td-mono">Catastrophic</td>
+          <td>All assessed (global)</td>
+          <td>Semiconductors</td>
+          <td><span class="chip chip-low">Critical</span></td>
+        </tr>
+        <tr>
+          <td><strong>Advanced chip export restriction escalation</strong></td>
+          <td class="td-mono">High</td>
+          <td class="td-mono">Severe</td>
+          <td>China; US allies</td>
+          <td>Semiconductors, Defense</td>
+          <td><span class="chip chip-low">Critical</span></td>
+        </tr>
+        <tr>
+          <td><strong>Critical mineral supply disruption</strong></td>
+          <td class="td-mono">Medium</td>
+          <td class="td-mono">Severe</td>
+          <td>USA, EU, Japan, Korea</td>
+          <td>EV, Defense, Electronics</td>
+          <td><span class="chip chip-low">Critical</span></td>
+        </tr>
+        <tr>
+          <td><strong>Western demand fragmentation for China exports</strong></td>
+          <td class="td-mono">High</td>
+          <td class="td-mono">Significant</td>
+          <td>China; Vietnam</td>
+          <td>Electronics, EV</td>
+          <td><span class="chip chip-mid">Elevated</span></td>
+        </tr>
+        <tr>
+          <td><strong>Energy price shock (European mfg.)</strong></td>
+          <td class="td-mono">Medium</td>
+          <td class="td-mono">Significant</td>
+          <td>Germany, EU</td>
+          <td>Chemicals, Automation</td>
+          <td><span class="chip chip-mid">Elevated</span></td>
+        </tr>
+        <tr>
+          <td><strong>India infrastructure execution gap</strong></td>
+          <td class="td-mono">High</td>
+          <td class="td-mono">Moderate</td>
+          <td>India</td>
+          <td>Electronics, Pharma</td>
+          <td><span class="chip chip-mid">Elevated</span></td>
+        </tr>
+        <tr>
+          <td><strong>API supply concentration shock</strong></td>
+          <td class="td-mono">Low-Medium</td>
+          <td class="td-mono">Severe</td>
+          <td>Global</td>
+          <td>Pharmaceuticals</td>
+          <td><span class="chip chip-mid">Elevated</span></td>
+        </tr>
+        <tr>
+          <td><strong>Container shipping capacity concentration</strong></td>
+          <td class="td-mono">Medium</td>
+          <td class="td-mono">Moderate</td>
+          <td>Global trade</td>
+          <td>Logistics</td>
+          <td><span class="chip chip-watch">Managed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Mexico security environment deterioration</strong></td>
+          <td class="td-mono">Medium</td>
+          <td class="td-mono">Moderate</td>
+          <td>Mexico, USA</td>
+          <td>Automotive, Electronics</td>
+          <td><span class="chip chip-watch">Managed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Japan demographic workforce decline</strong></td>
+          <td class="td-mono">Certain (structural)</td>
+          <td class="td-mono">Long-term</td>
+          <td>Japan</td>
+          <td>All sectors</td>
+          <td><span class="chip chip-watch">Long-term</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ POLICY RECOMMENDATIONS ═══════════════════════════════════ -->
+<section class="section" id="policy">
+  <div class="section-number">§ 11 — Policy Recommendations</div>
+  <h2>Policy <em>Recommendations</em></h2>
+  <div class="section-rule"></div>
+
+  <p>The following recommendations are addressed to national governments and multilateral policy bodies. They are not prescriptive mandates — they represent analytical judgments about where policy effort is most likely to generate resilience improvement within realistic institutional and fiscal constraints.</p>
+
+  <div class="policy-list">
+    <div class="policy-item">
+      <div class="policy-domain">Semiconductor Capacity</div>
+      <div class="policy-text">Governments should sustain and extend incentive frameworks for advanced semiconductor manufacturing, recognizing that returns are measured in decades rather than budget cycles. The US, EU, and Japan programs represent appropriate scale and direction — the critical risk is political durability over multi-year implementation. Coordination between allied economies on foundry investment is preferable to competitive subsidy auctions that dissipate fiscal resources.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">Critical Minerals Processing</div>
+      <div class="policy-text">Processing capacity, not extraction, is the decisive constraint in critical mineral supply chains. Policy should prioritize investment in refining and processing infrastructure in ally economies — Australia, Canada, Chile, South Africa — rather than focusing exclusively on extraction agreements. Technology transfer frameworks that enable processing capacity development in resource-rich economies represent the most durable long-term strategy, though they require policy persistence across electoral cycles.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">Supply Chain Transparency</div>
+      <div class="policy-text">Governments should establish mandatory supply chain disclosure regimes for strategic sectors — semiconductors, pharmaceuticals, defense components, telecommunications infrastructure. Current visibility into sub-tier supplier concentration is inadequate for informed industrial policy. The EU Supply Chain Act provides a partial template, though its scope should be explicitly extended to cover security-critical inputs.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">Strategic Stockpiling</div>
+      <div class="policy-text">The logic of strategic petroleum reserves should be extended to other categories of concentrated industrial input — rare earth elements, advanced semiconductor stocks, critical API pharmaceutical ingredients — where supply disruption timelines exceed absorption capacity. Coordinating stockpile policy among allied economies would improve cost efficiency and reduce individual government fiscal exposure.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">Industrial Workforce</div>
+      <div class="policy-text">Advanced manufacturing workforce development requires sustained investment in technical and vocational education systems, not temporary skills programs. Germany's dual vocational system remains the best-performing model in the assessed peer group and merits study and adaptation by economies seeking to build industrial workforce depth — particularly India, Vietnam, and Mexico, where technical workforce development is a binding constraint on manufacturing sophistication ambition.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">India-Specific</div>
+      <div class="policy-text">India should treat logistics infrastructure investment — ports, freight corridors, industrial water systems — as the binding constraint on manufacturing sector development. The PLI scheme is directionally sound; the infrastructure gap is what limits its conversion from policy intent to industrial outcome at scale. Accelerating the GatiShakti National Master Plan implementation and reducing state-level regulatory variance would generate disproportionate manufacturing FDI return relative to fiscal outlay.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">Multilateral Coordination</div>
+      <div class="policy-text">The fragmentation of export control regimes, investment screening mechanisms, and industrial subsidy policies among broadly aligned economies (US, EU, Japan, Korea, Australia, India) is generating regulatory compliance friction that falls most heavily on the industrial operators the policies are intended to support. A minimum coordination mechanism — analogous to the Wassenaar Arrangement but updated for the current technology competition environment — would improve policy coherence without requiring the geopolitical alignment that a formal multilateral agreement would demand.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ ENTERPRISE RECOMMENDATIONS ═══════════════════════════════════ -->
+<section class="section section-alt" id="enterprise">
+  <div class="section-number">§ 12 — Enterprise Recommendations</div>
+  <h2>Enterprise <em>Strategic</em> Guidance</h2>
+  <div class="section-rule"></div>
+
+  <p>The following recommendations are addressed to industrial enterprises — multinational manufacturers, tier-one suppliers, and procurement organizations — managing supply chain concentration risk within the geopolitical and industrial landscape analyzed in this publication.</p>
+
+  <div class="policy-list">
+    <div class="policy-item">
+      <div class="policy-domain">Sub-Tier Visibility</div>
+      <div class="policy-text">Most enterprise supply chain risk programs assess direct supplier relationships. The concentration risks documented in this analysis operate predominantly at the sub-tier level — the foundry behind the chip supplier, the Chinese refinery behind the Korean battery manufacturer, the API facility behind the contract drug formulator. Extending supply chain mapping to tier-3 and tier-4 suppliers in critical input categories is not optional for enterprises in affected sectors — it is a baseline requirement for informed risk management.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">Dual Sourcing Strategy</div>
+      <div class="policy-text">For input categories with high strategic dependency risk, dual sourcing from geographically distinct suppliers should be treated as a structural requirement rather than a cost-optimization decision. The premium paid for a secondary supplier relationship is an insurance premium against supply disruption — the cost calculus has shifted since the pandemic period, and organizations that deferred dual sourcing on cost grounds are reassessing that decision following observed disruption costs.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">Inventory Policy Recalibration</div>
+      <div class="policy-text">Just-in-time inventory minimizes working capital at the cost of buffer capacity. Organizations exposed to critical input concentration — particularly semiconductors, specialty chemicals, and rare earth-dependent components — should conduct explicit analysis of optimal inventory levels that account for supply disruption probability and disruption cost, rather than optimizing purely for carrying cost minimization. The pandemic period provided empirical data on disruption cost that should be incorporated into this calculus.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">Geopolitical Scenario Planning</div>
+      <div class="policy-text">Supply chain scenario planning should explicitly incorporate geopolitical risk scenarios — not as tail events but as plausible planning scenarios. The Taiwan Strait, US-China technology export escalation, and critical mineral supply disruption scenarios are all analytically supportable as planning-level probabilities over a five-year horizon. Organizations without explicit response plans for these scenarios carry an operational risk that is not adequately managed by standard business continuity frameworks.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">India Entry Strategy</div>
+      <div class="policy-text">For enterprises evaluating India as a manufacturing or supply chain location, the analytical framework suggests a phased approach: enter with a lower-complexity manufacturing or assembly function that generates operational familiarity with the regulatory and infrastructure environment, while developing the relationship capital and local expertise required to justify higher-complexity investment. Entry strategies premised on immediately replicating Chinese production complexity in India have generally underperformed expectations.</div>
+    </div>
+    <div class="policy-item">
+      <div class="policy-domain">Regulatory Compliance Architecture</div>
+      <div class="policy-text">The multiplication of export control regimes, investment screening mechanisms, and ESG supply chain disclosure requirements across major markets is creating a compliance architecture that requires active institutional management. Organizations that treat compliance as a legal function rather than a supply chain design input are generating structural exposure. Supply chain design decisions should incorporate compliance architecture requirements at the point of network design, not as a post-hoc overlay.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ METHODOLOGY ═══════════════════════════════════ -->
+<section class="section" id="methodology">
+  <div class="section-number">§ 13 — Methodology</div>
+  <h2>Analytical <em>Methodology</em></h2>
+  <div class="section-rule"></div>
+
+  <p>This publication constitutes an independent analytical framework and strategic industrial assessment. All analytical judgments are derived from the researcher's structured application of comparative industrial and macroeconomic reasoning to publicly available data sources, academic literature, and policy documents. No proprietary datasets, institutional partnerships, original surveys, or field research were conducted or claimed.</p>
+
+  <div class="method-grid">
+    <div class="method-cell">
+      <div class="method-label">Analytical Approach</div>
+      <div class="method-text">Comparative qualitative assessment across a defined peer group of economies, structured by a ten-dimension resilience framework. Judgments are ordinal and comparative — scores reflect relative standing within the assessed group, not absolute measurements.</div>
+    </div>
+    <div class="method-cell">
+      <div class="method-label">Data Sources</div>
+      <div class="method-text">Public macroeconomic data (World Bank, IMF, WTO, OECD), industrial trade statistics (UN Comtrade, ITC), national industrial policy documentation, academic literature on supply chain resilience, and sector-specific public reporting from industry bodies and government agencies.</div>
+    </div>
+    <div class="method-cell">
+      <div class="method-label">Scoring Framework</div>
+      <div class="method-text">Ten dimensions scored on a 1–10 ordinal scale within the assessed peer group. Aggregate Resilience Index Score (RIS) represents a simple mean of dimension scores. No dimension weighting has been applied to the aggregate; sector-specific analysis identifies where weighting adjustments are analytically warranted.</div>
+    </div>
+    <div class="method-cell">
+      <div class="method-label">Peer Group Selection</div>
+      <div class="method-text">Nine economies selected to represent the principal actors in global industrial supply chain dynamics: the two largest industrial economies (USA, China), the two most exposed advanced manufacturing economies in East Asia (Japan, Korea), the critical semiconductor geography (Taiwan), the leading European industrial economy (Germany), and the three principal alternative manufacturing destinations (India, Vietnam, Mexico).</div>
+    </div>
+    <div class="method-cell">
+      <div class="method-label">Sector Selection</div>
+      <div class="method-text">Eight industries selected to span the range of strategic supply chain exposure — from the extreme concentration of semiconductor manufacturing to the more distributed risk profile of industrial automation — and to cover the industries most frequently cited in supply chain resilience policy discourse.</div>
+    </div>
+    <div class="method-cell">
+      <div class="method-label">Temporal Scope</div>
+      <div class="method-text">Analysis reflects the structural industrial landscape as of 2025. Policy and investment trajectories referenced are based on announced programs and publicly documented investment commitments. Forward-looking assessments are clearly marked as analytical projections, not forecasts.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ LIMITATIONS ═══════════════════════════════════ -->
+<section class="section section-alt" id="limitations">
+  <div class="section-number">§ 14 — Limitations &amp; Analytical Notes</div>
+  <h2>Limitations &amp; <em>Analytical Notes</em></h2>
+  <div class="section-rule"></div>
+
+  <p>The following limitations apply to this publication and should be considered by any reader applying its analytical content to specific decision contexts.</p>
+
+  <div class="findings-list">
+    <li><span class="finding-num">L1</span><span><strong>Qualitative Scoring:</strong> The SSCRI scoring framework employs ordinal, comparative scores based on analytical judgment rather than quantitative measurement from a uniform dataset. This approach has internal consistency but cannot claim the precision of a statistically grounded index. Scores should be read as directional assessments of relative position, not cardinal measurements.</span></li>
+    <li><span class="finding-num">L2</span><span><strong>No Original Data Collection:</strong> This publication does not present original survey data, interview findings, or proprietary research. All analytical judgments are derived from publicly available information sources. Readers requiring more granular or time-sensitive data should consult primary industrial and trade databases directly.</span></li>
+    <li><span class="finding-num">L3</span><span><strong>Dynamic Environment:</strong> The industrial and geopolitical landscape analyzed in this publication is subject to rapid change. Specific policy announcements, investment decisions, or geopolitical events occurring after the analysis period may materially affect the assessments presented. The framework is designed to be reapplicable to updated conditions rather than treated as a static reference.</span></li>
+    <li><span class="finding-num">L4</span><span><strong>Aggregate vs. Sector-Specific:</strong> Aggregate Resilience Index Scores obscure material variation in sector-specific risk exposure. An economy's overall score may mask a critical vulnerability in a specific sector — Taiwan being the clearest example, where aggregate score does not capture the sector-specific significance of its foundry position. Sector-specific analysis should be consulted alongside aggregate scores.</span></li>
+    <li><span class="finding-num">L5</span><span><strong>Sub-National Variation:</strong> Economy-level assessments necessarily aggregate over significant internal variation. India's logistics assessment, for instance, varies substantially between the National Capital Region industrial belt and remote manufacturing zones. Readers applying this analysis to specific facility location or investment decisions should supplement with sub-national due diligence.</span></li>
+    <li><span class="finding-num">L6</span><span><strong>Researcher Independence:</strong> This publication was produced independently by an individual researcher. It has not been subject to institutional peer review, external expert validation, or editorial oversight beyond the researcher's own analytical standards. It should be treated accordingly — as serious independent analytical work, not as an institutionally validated research publication.</span></li>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ REFERENCES ═══════════════════════════════════ -->
+<section class="section" id="references">
+  <div class="section-number">§ 15 — References</div>
+  <h2>Principal <em>Reference Sources</em></h2>
+  <div class="section-rule"></div>
+  <p>The following public-domain sources informed the analytical framework and country/sector assessments presented in this publication.</p>
+
+  <h4>International Organizations &amp; Multilateral Bodies</h4>
+  <ul class="references-list">
+    <li>International Monetary Fund. <em>World Economic Outlook</em>. Various editions. Washington D.C.: IMF Publications.</li>
+    <li>World Bank. <em>Logistics Performance Index</em>. Various years. Washington D.C.: World Bank Group.</li>
+    <li>World Trade Organization. <em>Global Value Chain Development Report</em>. Geneva: WTO Secretariat.</li>
+    <li>OECD. <em>Trade in Value Added (TiVA) Database</em>. Paris: OECD Publishing.</li>
+    <li>OECD. <em>Industrial Policy and the Challenges of the Twin Transition</em>. Paris: OECD Publishing, 2023.</li>
+    <li>United Nations Conference on Trade and Development (UNCTAD). <em>World Investment Report</em>. Geneva: UNCTAD.</li>
+    <li>UN Comtrade Database. <em>International Trade Statistics</em>. United Nations Statistics Division.</li>
+  </ul>
+
+  <h4>Government &amp; Policy Documents</h4>
+  <ul class="references-list">
+    <li>Government of India. <em>Production Linked Incentive Scheme — Scheme Guidelines</em>. New Delhi: Ministry of Commerce and Industry.</li>
+    <li>United States Department of Commerce. <em>CHIPS and Science Act: Implementation Progress</em>. Washington D.C.</li>
+    <li>European Commission. <em>European Chips Act</em>. Brussels: European Commission, 2023.</li>
+    <li>Government of Japan. <em>Economic Security Promotion Act</em>. Tokyo: Cabinet Secretariat, 2022.</li>
+    <li>Ministry of Economy, Trade and Industry (Japan). <em>White Paper on Manufacturing</em>. Tokyo: METI.</li>
+    <li>Government of India. <em>National Logistics Policy 2022</em>. New Delhi: Ministry of Commerce.</li>
+    <li>US Department of Energy. <em>Critical Materials Strategy</em>. Washington D.C.: DOE.</li>
+  </ul>
+
+  <h4>Academic &amp; Institutional Research</h4>
+  <ul class="references-list">
+    <li>Gereffi, G. &amp; Luo, X. <em>Risks and Opportunities of Participation in Global Value Chains</em>. World Bank Policy Research Working Paper.</li>
+    <li>Shih, W. <em>Global Supply Chains in a Post-Pandemic World</em>. Harvard Business Review, 2020.</li>
+    <li>Miroudot, S. <em>Resilience versus Efficiency in Global Value Chains</em>. OECD Trade Policy Paper.</li>
+    <li>Semiconductor Industry Association. <em>State of the U.S. Semiconductor Industry</em>. Washington D.C.: SIA.</li>
+    <li>Center for Strategic and International Studies (CSIS). <em>Securing the Semiconductor Supply Chain</em>. Washington D.C.</li>
+    <li>Rhodium Group. <em>The China-US Technology Decoupling</em>. Research Report.</li>
+  </ul>
+
+  <h4>Industrial &amp; Trade Data</h4>
+  <ul class="references-list">
+    <li>IHS Markit / S&amp;P Global. <em>Purchasing Managers Index — Manufacturing</em>. Various editions.</li>
+    <li>International Energy Agency. <em>Critical Minerals Market Review</em>. Paris: IEA, 2023–2024.</li>
+    <li>BloombergNEF. <em>Electric Vehicle Outlook</em>. Published annually.</li>
+    <li>TrendForce. <em>Global Semiconductor Foundry Market Share Analysis</em>. Research publications.</li>
+    <li>World Semiconductor Trade Statistics (WSTS). <em>Global Semiconductor Sales Data</em>.</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════════════════ RESEARCHER NOTE ═══════════════════════════════════ -->
+<div class="researcher-note" id="researcher-note">
+  <div class="rn-label">Researcher Note</div>
+  <div class="rn-name">Priyanshu Gupta</div>
+  <div class="rn-affil">BBA Final Year · Lovely Professional University · Punjab, India</div>
+  <p class="rn-text">
+    This publication represents an independent analytical project undertaken as part of my engagement with macroeconomic and industrial strategy research. It was produced without institutional affiliation, proprietary data access, or collaboration with any government, commercial, or research body. The analytical judgments presented are my own, informed by publicly available sources and comparative reasoning developed through sustained engagement with the academic and policy literature on supply chain resilience and industrial strategy.
+  </p>
+  <br>
+  <p class="rn-text">
+    I do not claim professional credentials in geopolitical analysis or industrial economics. The value of this work lies in the rigor of its analytical framework and the quality of its reasoning — not in the institutional standing of its author. It is offered as a serious attempt to engage with questions of genuine strategic importance, and it should be evaluated on that basis.
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Sovereign Supply Chain &amp; Industrial Resilience Index (SSCRI) · 2025 &nbsp;·&nbsp; Independent Analytical Framework Series &nbsp;·&nbsp; Researcher: Priyanshu Gupta, LPU &nbsp;·&nbsp; For portfolio and analytical purposes only
+</footer>
+
+</div><!-- .publication -->
+</body>
+</html>
